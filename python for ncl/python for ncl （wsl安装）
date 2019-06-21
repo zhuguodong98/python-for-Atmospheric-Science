@@ -1,4 +1,4 @@
-Wsl下搭建ncl for python
+Wsl下搭建python for ncl
 1、	微软应用商店中有wsl guideline。先安装，上面有很多wsl的说明。
 2、	然后激活wsl后，在应用商店中安装ubuntu lts。一定是lts版的。
 3、	在anaconda官网下载linux的miniconda3（wsl占c盘空间，推荐这个）。
