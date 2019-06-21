@@ -1,0 +1,16 @@
+Wsl下搭建ncl for python
+1、	微软应用商店中有wsl guideline。先安装，上面有很多wsl的说明。
+2、	然后激活wsl后，在应用商店中安装ubuntu lts。一定是lts版的。
+3、	在anaconda官网下载linux的miniconda3（wsl占c盘空间，推荐这个）。
+4、	和在linux下安装软件一样，cd到安装包目录。（windows各盘在/mnt/…目录下）然后bash安装。（记住安装目录一般默认在/home/【你的用户名】/下）
+5、	安装好后，添加环境变量sudo -s登陆root。命令sudo vi /etc/profile编辑配置文件，输入i进入insert模式，在最后末行写入export PATH=/home/zhu/anaconda3/bin:$PATH（我的安装路径）。然后按esc推出insert，命令 :wq 保存文件并退出。
+6、	退出root，在普通用户模式下，输入命令conda或是python看是否成功。
+7、	添加channel（conda config --show channels显示所有channel）
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --set show_channel_urls yes
+添加清华镜像。
+8、	安装pynio和pyngl
+conda create --name ncl --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ pynio pyngl（我创建的环境名为ncl，如果加入了这条channel，安装也可不用指明）
+9、	安装完后，source activate ncl（激活环境），命令python，调用Nio或Ngl，如果成功，则完成安装。
