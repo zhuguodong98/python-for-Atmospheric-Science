@@ -1,0 +1,39 @@
+新版本ncl安装
+一、搭建环境
+1、安装linux操作系统：
+选择ubuntu操作系统，在官网上下载iso文件。利用usbwriter刻录在优盘上，在windous中分一块空白的磁盘（20-25个G左右）。然后利用优盘安装把系统挂载在分出的空白磁盘上。
+2、安装anaconda环境：
+在anaconda官网上选择合适版本下载，然后在终端中cd到下载文件目录，安装利用命令bash     文件名（如：bash    Anaconda3-2019.03-Linux-x86_64.sh）
+在安装过程中，会提醒是否加到环境变量，默认是【否】，我们选【是】。如果安装中没有选择，可以在安装完后
+                               sudo  -s（登陆root）（这里要输入用户密码）
+                               sudo   gedit   /etc/profile（打开profile文件）
+                               在profile文件最末行输入 export  PATH=/anaconda安装路径/bin:$PATH （如：export PATH=/home/zhu/anaconda3/bin:$PATH）
+                                source   /etc/profile （让profile文件立即生效）
+                                完全添加到环境变量，需要重启计算机
+此后，可以在终端中输入python进入conda环境的python交互式情景。如果没有进入，须重新检查环境变量是否添加正确。
+二、安装pynio和pyngl
+1、在终端中输入
+     conda create --name pyn_env --channel conda-forge pynio pyngl
+（该命令来自ncl官方，利用conda建立了个新的子环境（pyn_env）
+pynio和pyngl将安装在这个环境中，由于这个环境是conda基本环境的子环境（虚拟环境），各个环境之间相互独立）
+2、激活环境
+使用命令      conda   info  -e（查看conda环境列表，在这里你可以看到conda中的base环境和所有子环境）
+使用命令      source   activate   pyn_env （激活pyn_env环境，在该环境下再调用python即能成功使用pynio和pyngl）
+激活环境后命令python，进入交互式界面
+>>> import Nio
+>>> import Ngl
+>>> print(Nio.__version__)
+>>> print(Ngl.__version__)
+查看pynio和pyngl是否安装顺利。
+三、安装编辑器
+在linux环境下，vim是python的首选，但是要安装成一个比较完美的python编辑器需要有比较熟练的linux基础，需要全命令安装。很推荐，很好用。
+我选择的是pycharm community edition（免费版），因为安装简单。在ubuntu应用商店中可以直接安装。安装好后新建项目，选择existing
+interpreter，它检测到的默认环境是在conda的主环境中，这里需要更改，该到pyn_env中。即把目录写到......pyn_env/bin/python
+一般pyn_env在envs目录下。创建后，就可以安装成功了。
+
+
+
+
+
+                     
+
