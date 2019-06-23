@@ -14,3 +14,4 @@ conda config --set show_channel_urls yes
 8、	安装pynio和pyngl
 conda create --name ncl --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ pynio pyngl（我创建的环境名为ncl，如果加入了这条channel，安装也可不用指明）
 9、	安装完后，source activate ncl（激活环境），命令python，调用Nio或Ngl，如果成功，则完成安装。
+10、	安装编辑器，选择visual studio code。安装好后，在里面下载wsl扩展，然后remote-wsl new window。完成后在wsl连接情况下，vs code中安装python扩展（install on wsl）。然后选择解释器，conda在ubuntu里添加了环境变量的情况下。会弹出所有python解释器的路径，然后选择选择ncl环境下的python。编辑器就安装好了。在vs code中打开一个空文件夹，则作为一个项目文件夹，在其下创建py文件。
